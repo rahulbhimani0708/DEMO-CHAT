@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial monorepo structure with pnpm workspaces
 - Next.js 14 frontend application (`apps/web`)
   - Tailwind CSS integration

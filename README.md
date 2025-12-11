@@ -24,24 +24,28 @@ demo-chat-monorepo/
 ## 🛠️ Tech Stack
 
 ### Frontend (`apps/web`)
+
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
 - **Package Manager**: pnpm
 
 ### Backend API (`apps/api`)
+
 - **Framework**: Express.js
 - **Language**: TypeScript
 - **Database**: SQLite (better-sqlite3)
 - **Authentication**: JWT (jsonwebtoken)
 
 ### AI Service (`apps/ai`)
+
 - **Framework**: FastAPI
 - **Language**: Python 3.11+
 - **AI Provider**: Google Gemini AI
 - **Package Manager**: Poetry (with requirements.txt fallback)
 
 ### Shared Tooling
+
 - **Monorepo**: pnpm workspaces
 - **Linting**: ESLint
 - **Formatting**: Prettier
@@ -69,6 +73,7 @@ chmod +x scripts/setup.sh
 ```
 
 The script will:
+
 - Install pnpm (if not present)
 - Install all Node.js dependencies
 - Install Python dependencies
@@ -262,6 +267,7 @@ The AI service uses Google's Gemini AI model for chat completions:
 ### Commit Conventions
 
 Follow conventional commits:
+
 - `feat:` New features
 - `fix:` Bug fixes
 - `docs:` Documentation changes
@@ -277,6 +283,7 @@ Each app has its own Dockerfile:
 - `apps/ai/Dockerfile`: Python FastAPI service
 
 The `docker-compose.yml` orchestrates all services with:
+
 - Automatic service networking
 - Volume mounting for hot reload in development
 - SQLite data persistence via named volume

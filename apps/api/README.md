@@ -26,13 +26,16 @@ pnpm start
 ## API Endpoints
 
 ### Health Check
+
 - `GET /health` - Returns API health status
 
 ### Authentication
+
 - `POST /api/auth/login` - User login
 - `POST /api/auth/register` - User registration
 
 ### Chat
+
 - `GET /api/chat/messages` - Get recent messages
 - `POST /api/chat/messages` - Create a new message
 

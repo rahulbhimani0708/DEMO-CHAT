@@ -1,18 +1,19 @@
-import Database from 'better-sqlite3';
 import path from 'path';
+
+import Database from 'better-sqlite3';
 
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, '../data/chat.db');
 
 let db: Database.Database;
 
-export function getDb() {
+export function getDb(): Database.Database {
   if (!db) {
     db = new Database(DB_PATH);
   }
   return db;
 }
 
-export function initDatabase() {
+export function initDatabase(): void {
   const database = getDb();
 
   database.exec(`

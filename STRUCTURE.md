@@ -81,41 +81,48 @@ demo-chat-monorepo/
 ## Directory Purposes
 
 ### `/apps`
+
 Contains all applications in the monorepo. Each app is independently deployable.
 
 ### `/packages`
+
 Contains shared packages used across multiple apps:
+
 - **eslint-config**: Shared ESLint rules and configurations
 - **typescript-config**: Shared TypeScript compiler configurations
 
 ### `/scripts`
+
 Utility scripts for development and deployment tasks.
 
 ## Key Configuration Files
 
-| File | Purpose |
-|------|---------|
-| `pnpm-workspace.yaml` | Defines workspace packages for pnpm |
-| `turbo.json` | Configures Turborepo for optimized builds |
-| `.prettierrc` | Code formatting rules |
-| `.gitignore` | Files to ignore in git |
-| `docker-compose.yml` | Multi-container Docker orchestration (production) |
+| File                     | Purpose                                            |
+| ------------------------ | -------------------------------------------------- |
+| `pnpm-workspace.yaml`    | Defines workspace packages for pnpm                |
+| `turbo.json`             | Configures Turborepo for optimized builds          |
+| `.prettierrc`            | Code formatting rules                              |
+| `.gitignore`             | Files to ignore in git                             |
+| `docker-compose.yml`     | Multi-container Docker orchestration (production)  |
 | `docker-compose.dev.yml` | Multi-container Docker orchestration (development) |
 
 ## Technology Stack by App
 
 ### Web (`apps/web`)
+
 - Next.js 14 (React framework)
 - Tailwind CSS (styling)
 - TypeScript (type safety)
 
 ### API (`apps/api`)
+
 - Express.js (web framework)
 - TypeScript (type safety)
 - better-sqlite3 (database)
 - jsonwebtoken (authentication)
 
 ### AI (`apps/ai`)
+
 - FastAPI (web framework)
 - Python 3.11+
 - Google Generative AI (Gemini)

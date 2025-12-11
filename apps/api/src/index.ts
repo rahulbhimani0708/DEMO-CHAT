@@ -1,6 +1,7 @@
-import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
+
 import { initDatabase } from './db';
 import { authRouter } from './routes/auth';
 import { chatRouter } from './routes/chat';
@@ -15,7 +16,7 @@ app.use(express.json());
 
 initDatabase();
 
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'api' });
 });
 
