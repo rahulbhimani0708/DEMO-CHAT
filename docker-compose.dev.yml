@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - API_URL=http://api:3001
+      - AI_URL=http://ai:8000
+    depends_on:
+      - api
+      - ai
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DB_PATH=/data/chat.db
+      - JWT_SECRET=${JWT_SECRET:-development-secret-key}
+      - AI_SERVICE_URL=http://ai:8000
+    volumes:
+      - ./apps/api:/app
+      - /app/node_modules
+      - sqlite-data:/data
+    command: npm run dev
+
+  ai:
+    build:
+      context: ./apps/ai
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - PORT=8000
+      - HOST=0.0.0.0
+    volumes:
+      - ./apps/ai:/app
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+volumes:
+  sqlite-data:
+    driver: local
