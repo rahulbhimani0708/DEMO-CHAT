@@ -72,6 +72,7 @@ Follow the Conventional Commits specification:
 - `chore:` - Maintenance tasks
 
 Examples:
+
 ```
 feat: add user authentication to chat
 fix: resolve database connection timeout
@@ -106,6 +107,7 @@ docs: update installation instructions
 ## Questions?
 
 Feel free to open an issue for:
+
 - Bug reports
 - Feature requests
 - Questions about the codebase

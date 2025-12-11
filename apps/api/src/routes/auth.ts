@@ -1,15 +1,16 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 
-const router = Router();
+const router: Router = Router();
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res): void => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).json({ error: 'Username and password required' });
+    res.status(400).json({ error: 'Username and password required' });
+    return;
   }
 
   const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '7d' });
@@ -17,11 +18,12 @@ router.post('/login', (req, res) => {
   res.json({ token, user: { username } });
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res): void => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).json({ error: 'Username and password required' });
+    res.status(400).json({ error: 'Username and password required' });
+    return;
   }
 
   const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '7d' });
