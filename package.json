@@ -1,0 +1,28 @@
+{
+  "name": "demo-chat-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A monorepo for DEMO-CHAT application with Next.js web, Express API, and FastAPI AI services",
+  "scripts": {
+    "dev": "pnpm run --parallel dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api dev",
+    "build": "pnpm run --recursive build",
+    "build:web": "pnpm --filter web build",
+    "build:api": "pnpm --filter api build",
+    "lint": "pnpm run --recursive lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "typecheck": "pnpm run --recursive typecheck",
+    "clean": "pnpm run --recursive clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "turbo": "^1.11.2"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
